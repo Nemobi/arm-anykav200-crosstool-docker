@@ -20,4 +20,6 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag nemobi/arm-anykav200-crosstool:$(date +%s)
+      run: docker build . --file Dockerfile --tag nemobi/arm-anykav200-crosstool:latest
+    - name: Push image
+      run: docker push nemobi/arm-anykav200-crosstool:latest
